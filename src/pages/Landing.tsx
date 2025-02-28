@@ -11,12 +11,10 @@ const Landing: React.FC = () => {
   return (
     <>
       <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <Testimonials />
-        <Contact />
-      </main>
+      <Hero />
+      <Services />
+      <Testimonials />
+      <Contact />
       <Footer />
     </>
   );
