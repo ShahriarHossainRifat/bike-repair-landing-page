@@ -5,14 +5,14 @@ export const HERO_IMAGE_URL =
 export const services = [
   {
     image:
-      "https://images.unsplash.com/photo-1561642769-1bca263542e0?q=80&w=1716&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1559348349-86f1f65817fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     title: "Basic Tune-Up",
     description: "Quick service to get your bike in good working condition.",
     price: "$49.99",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1529236183275-4fdcf2bc987e?q=80&w=1587&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1529236183275-4fdcf2bc987e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     title: "Premium Service",
     description: "Comprehensive overhaul of your entire bicycle.",
     price: "$129.99",

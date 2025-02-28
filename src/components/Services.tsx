@@ -13,7 +13,7 @@ interface ServiceCardProps {
 const ServiceCard = ({ service, index }: ServiceCardProps) => (
   <div
     key={index}
-    className="card bg-base-100 shadow-xl group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:bg-opacity-95"
+    className="card bg-base-100 shadow-xl rounded-xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
   >
     <figure className="h-48 overflow-hidden">
       <img
@@ -39,6 +39,7 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => (
         </button>
       </div>
     </div>
+    <div className="absolute inset-0 rounded-xl pointer-events-none bg-base-100 opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
   </div>
 );
 
