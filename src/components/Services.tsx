@@ -1,69 +1,59 @@
-// src/components/Services.tsx
-import React from "react";
+import { services } from "../data";
 
-const Services: React.FC = () => {
-  const services = [
-    {
-      title: "Basic Tune-Up",
-      description:
-        "Comprehensive inspection, adjustment of gears and brakes, tire inflation check.",
-      price: "$45",
-      image:
-        "https://images.unsplash.com/photo-1529422643029-d4585747aaf2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    },
-    {
-      title: "Premium Service",
-      description:
-        "Complete disassembly, thorough cleaning, bearing service, and complete tune-up.",
-      price: "$120",
-      image:
-        "https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    },
-    {
-      title: "Wheel Building",
-      description:
-        "Custom wheel building and truing services for all types of bikes.",
-      price: "$85+",
-      image:
-        "https://images.unsplash.com/photo-1502744688674-c619d1586c9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
-    },
-    {
-      title: "Emergency Repair",
-      description:
-        "Quick repairs when you need them most. Available 7 days a week.",
-      price: "$65+",
-      image:
-        "https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80",
-    },
-  ];
+interface ServiceCardProps {
+  service: {
+    image: string;
+    title: string;
+    description: string;
+    price: string;
+  };
+  index: number;
+}
 
+const ServiceCard = ({ service, index }: ServiceCardProps) => (
+  <div
+    key={index}
+    className="card bg-base-100 shadow-xl group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:bg-opacity-95"
+  >
+    <figure className="h-48 overflow-hidden">
+      <img
+        src={service.image}
+        alt={service.title}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300"></div>
+    </figure>
+    <div className="card-body relative">
+      <div className="absolute top-0 left-4 right-4 h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+
+      <h2 className="card-title group-hover:text-primary transition-colors duration-300">
+        {service.title}
+      </h2>
+      <p>{service.description}</p>
+      <div className="card-actions justify-between items-center mt-4">
+        <div className="text-lg font-semibold group-hover:text-primary/90 transition-colors duration-300">
+          {service.price}
+        </div>
+        <button className="btn btn-primary btn-sm opacity-90 group-hover:opacity-100 transition-all duration-300 hover:scale-105">
+          Book Now
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
+const Services = () => {
   return (
-    <div id="services" className="bg-base-200 py-16">
+    <section id="services" className="bg-base-200 py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <div key={index} className="card bg-base-100 shadow-xl">
-              <figure className="h-48 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">{service.title}</h2>
-                <p>{service.description}</p>
-                <div className="card-actions justify-between items-center mt-4">
-                  <div className="text-lg font-semibold">{service.price}</div>
-                  <button className="btn btn-primary btn-sm">Book Now</button>
-                </div>
-              </div>
-            </div>
+            <ServiceCard key={index} service={service} index={index} />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,13 +1,14 @@
-/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base styles */
 html {
   scroll-behavior: smooth;
 }
 
-/* Add cursor styles for clickable elements */
-.navbar a, .btn {
+/* Interactive elements */
+.navbar a, 
+.btn {
   cursor: pointer;
 }

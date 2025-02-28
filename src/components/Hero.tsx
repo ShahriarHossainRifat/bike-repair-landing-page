@@ -1,6 +1,6 @@
-// src/components/Hero.tsx
 import React from "react";
-import heroImage from "../assets/hero-bg.jpg"; // You'll need to download this image
+import { COMPANY_NAME, HERO_IMAGE_URL } from "../data";
+import { scrollToSection } from "../utils/scroll";
 
 const Hero: React.FC = () => {
   return (
@@ -8,8 +8,7 @@ const Hero: React.FC = () => {
       id="home"
       className="hero min-h-screen"
       style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')",
+        backgroundImage: `url('${HERO_IMAGE_URL}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -18,13 +17,18 @@ const Hero: React.FC = () => {
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">
-            Pedal Perfect Bike Repairs
+            {COMPANY_NAME} Bike Repairs
           </h1>
           <p className="mb-5">
             We fix every gear, chain, and frame with precision and care. Your
             bike deserves the best service in town!
           </p>
-          <button className="btn btn-primary">Book a Service</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => scrollToSection("contact")}
+          >
+            Book a Service
+          </button>
         </div>
       </div>
     </div>

@@ -9,14 +9,16 @@ import Footer from "../components/Footer";
 
 const Landing: React.FC = () => {
   return (
-    <div>
+    <>
       <Navbar />
-      <Hero />
-      <Services />
-      <Testimonials />
-      <Contact />
+      <main>
+        <Hero />
+        <Services />
+        <Testimonials />
+        <Contact />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

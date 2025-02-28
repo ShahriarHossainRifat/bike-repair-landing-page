@@ -1,29 +1,47 @@
-// src/components/Footer.tsx
 import React from "react";
+interface FooterColumnProps {
+  title: string;
+  links: string[];
+}
+
+const FooterColumn = ({ title, links }: FooterColumnProps) => (
+  <div>
+    <span className="footer-title">{title}</span>
+    {links.map((link: string, index: number) => (
+      <a key={index} className="link link-hover">
+        {link}
+      </a>
+    ))}
+  </div>
+);
 
 const Footer: React.FC = () => {
+  const columns = [
+    {
+      title: "Services",
+      links: [
+        "Basic Tune-Up",
+        "Premium Service",
+        "Wheel Building",
+        "Emergency Repair",
+      ],
+    },
+    {
+      title: "Company",
+      links: ["About us", "Contact", "Jobs", "Press kit"],
+    },
+    {
+      title: "Legal",
+      links: ["Terms of use", "Privacy policy", "Cookie policy"],
+    },
+  ];
+
   return (
     <footer className="footer p-10 bg-neutral text-neutral-content">
-      <div>
-        <span className="footer-title">Services</span>
-        <a className="link link-hover">Basic Tune-Up</a>
-        <a className="link link-hover">Premium Service</a>
-        <a className="link link-hover">Wheel Building</a>
-        <a className="link link-hover">Emergency Repair</a>
-      </div>
-      <div>
-        <span className="footer-title">Company</span>
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
-      </div>
-      <div>
-        <span className="footer-title">Legal</span>
-        <a className="link link-hover">Terms of use</a>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
-      </div>
+      {columns.map((column, index) => (
+        <FooterColumn key={index} title={column.title} links={column.links} />
+      ))}
+
       <div>
         <span className="footer-title">Newsletter</span>
         <div className="form-control w-80">
@@ -34,11 +52,15 @@ const Footer: React.FC = () => {
           </label>
           <div className="relative">
             <input
-              type="text"
+              type="email"
               placeholder="username@site.com"
               className="input input-bordered w-full pr-16"
+              aria-label="Email for newsletter"
             />
-            <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+            <button
+              className="btn btn-primary absolute top-0 right-0 rounded-l-none"
+              aria-label="Subscribe"
+            >
               Subscribe
             </button>
           </div>
